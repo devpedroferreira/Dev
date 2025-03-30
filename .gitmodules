@@ -1,0 +1,6 @@
+[submodule "interface-devburger"]
+	path = interface-devburger
+	url = https://github.com/devpedroferreira/interface-devburger.git
+[submodule "DevBurger-Api"]
+	path = DevBurger-Api
+	url = https://github.com/devpedroferreira/devburger-api.git

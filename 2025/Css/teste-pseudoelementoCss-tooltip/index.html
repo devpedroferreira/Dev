@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>
+        /* Estilo base do elemento com tooltip */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+            margin: 100px;
+            font-size: 18px;
+            color: #2c3e50;
+            cursor: help;
+        }
+
+        /* Tooltip invisível por padrão */
+        .tooltip-container::after {
+            content: attr(data-tooltip); /* Pega o texto do atributo data-tooltip */
+            position: absolute;
+            background: #34495e;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 100%;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none; /* Permite clicar através da tooltip */
+        }
+
+        /* Triângulo da tooltip */
+        .tooltip-container::before {
+            content: '';
+            position: absolute;
+            border: 6px solid transparent;
+            border-top-color: #34495e;
+            bottom: calc(100% - 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: inherit;
+        }
+
+        /* Mostra a tooltip ao passar o mouse */
+        .tooltip-container:hover::after,
+        .tooltip-container:hover::before {
+            opacity: 1;
+            bottom: 120%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Elemento com tooltip -->
+    <p class="tooltip-container" data-tooltip="HTML é a linguagem de marcação padrão para criar páginas web">
+        HTML
+    </p>
+
+    <!-- Segundo elemento com tooltip diferente -->
+    <p class="tooltip-container" data-tooltip="CSS é usado para estilizar elementos escritos em uma linguagem de marcação">
+        CSS
+    </p>
+</body>
+</html>
